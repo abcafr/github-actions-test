@@ -13,7 +13,7 @@ jobs:
     # The steps that the workflow will go through
     steps:
       - name: echo a string
-        run: echo "Hello World"
+        run: eccho "Hello World"
       - name: multiline script
         # The pipe '|' character lets us do several lines of scripting in one 'run'
         run: |
