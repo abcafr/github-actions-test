@@ -15,3 +15,4 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
 
 1. To create a GitHub workflow, create the following path in your git repository: **.github/workflows/**.
 1. Create a YML-file named after the workflows purpose, like 'provision_env.yml', and place it in the directory above, as such: **.github/workflows/provision_env.yml**.
+1. Depending on the event-trigger, the workflow will now activate when you push code, make a pull-request ect.
