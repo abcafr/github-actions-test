@@ -22,8 +22,10 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
 A workflow is written in YAML, which is a deserialization-language like JSON. The basic structure of a workflow could look like this:
 
 ```yaml
-name: hello-world
+# The name of our workflow
+name: Shell-Commands
 
+# The 'on' keyword determines which event(s) will trigger the workflow, for example on: [push, pull_request] ect.
 on: [push]
 
 # The jobs section holds all the jobs that the workflow will do.
@@ -36,16 +38,14 @@ jobs:
     steps:
       - name: echo a string
         run: echo "Hello World"
-      - name: check node and npm version
+      - name: multiline script
         # The pipe '|' character lets us do several lines of scripting in one 'run'
         run: |
           node -v
           npm -v
 ```
 
-Which will echo a string with "Hello World", and print the versions of NodeJS and npm on the host.
-
-### References
+### Links to examples
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
 - [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
