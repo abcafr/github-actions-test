@@ -27,6 +27,8 @@ jobs:
 
   run-windows-commands:
     runs-on: windows-latest
+    # the 'needs' key tells the job which other jobs needs to complete, before it should run
+    needs: [run-shell-command]
     steps:
       - name: Directory PowerShell
         run: Get-Location
