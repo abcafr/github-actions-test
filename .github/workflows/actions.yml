@@ -1,0 +1,41 @@
+name: Actions workflow
+
+on: [push]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Action
+        id: greet
+        # A job in a workflow can use actions, either self-written or
+        # an action publicly available through GitHub for example.
+        #
+        # The syntax is as follows: username/repositoryname@version
+        # Where version can be branch name, version, or commit ID.
+        uses: actions/hello-world-javascript-action@v1
+        # When using an action, you can or should pass parameters for
+        # the action to use for running succesfully.
+        # This is done with the 'with' key.
+        # As it shows from the documentation for the above action,
+        # found here:
+        # https://github.com/actions/hello-world-javascript-action
+        # the 'who-to-greet' input is required for the action to run
+        # succesfully.
+        with:
+          who-to-greet: John
+      - name: Log Greeting Time
+        # The above action can produce an output, as seen in the
+        # documentation. In order to get this, the following steps
+        # in the echo command is explained as such:
+        #
+        # Syntax: "${{ steps.id.outputs.parameter }}"
+        #
+        # 1. GitHub provides an object called steps, which contains
+        #    all the steps in a workflow.
+        # 2. In order to identify a step,
+        #    it needs to be provided with an ID, in this case 'greet'
+        #    as seen on line 10
+        # 3. We define that we want to get an output from the action
+        # 4. The parameter we want in this action is called 'time'
+        run: echo "${{ steps.greet.outputs.time }}"

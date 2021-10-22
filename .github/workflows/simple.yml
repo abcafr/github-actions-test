@@ -19,12 +19,15 @@ jobs:
         run: |
           node -v
           npm -v
+        # Demonstrating how to run a script in a different shell, here in python
       - name: python command
         run: |
           import platform
           print(platform.processor())
         shell: python
 
+  # This is another job that will run in parallel with the other jobs,
+  # unless the 'needs' key has demands.
   run-windows-commands:
     runs-on: windows-latest
     # the 'needs' key tells the job which other jobs needs to complete, before it should run
