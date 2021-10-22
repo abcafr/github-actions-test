@@ -48,4 +48,4 @@ Which will echo a string with "Hello World", and print the versions of NodeJS an
 ### References
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
-
+- [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
