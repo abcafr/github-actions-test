@@ -23,7 +23,7 @@ A workflow is written in YAML, which is a deserialization-language like JSON. Th
 
 ```yaml
 # The name of our workflow
-name: Shell-Commands
+name: Hello-World
 
 # The 'on' keyword determines which event(s) will trigger the workflow, for example on: [push, pull_request] ect.
 on: [push]
