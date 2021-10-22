@@ -1,0 +1,21 @@
+# The name of our workflow
+name: Shell Commands
+
+# The 'on' keyword determines which event(s) will trigger the workflow, for example on: [push, pull_request] ect.
+on: [push]
+
+# The jobs section holds all the jobs that the workflow will do.
+jobs:
+  # The name of the job
+  run-shell-command:
+    # Choose the VM the workflow will run on
+    runs-on: ubuntu-latest
+    # The steps that the workflow will go through
+    steps:
+      - name: echo a string
+        run: echo "Hello World"
+      - name: multiline script
+        # The pipe '|' character lets us do several lines of scripting in one 'run'
+        run: |
+          node -v
+          npm -v
