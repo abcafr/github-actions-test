@@ -45,7 +45,7 @@ jobs:
           npm -v
 ```
 
-### Event triggers in a workflow
+### GitHub events & activity types
 
 GitHub actions can be triggered in many stages of the development process. The most common would be when a developer
 pushes his code, but there are other events that can trigger one or more workflows.
