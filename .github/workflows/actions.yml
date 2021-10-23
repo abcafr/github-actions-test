@@ -10,6 +10,13 @@ jobs:
         run: |
           pwd
           ls
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+        #  git clone git@github:$GITHUB_REPOSITORY
+        #  git checkout $GITHUB_SHA
+        # The checkout action checks out your repository on the remote VM
       - name: Checkout
         uses: actions/checkout@v1
       - name: List Files After Checkout
