@@ -10,7 +10,12 @@ jobs:
         run: |
           pwd
           ls
-          whoami
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: List Files After Checkout
+        run: |
+          pwd
+          ls -la
       - name: Simple JS Action
         id: greet
         # A job in a workflow can use actions, either self-written or
