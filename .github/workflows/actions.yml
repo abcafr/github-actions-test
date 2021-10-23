@@ -6,6 +6,11 @@ jobs:
   run-hello-world-javascript-action:
     runs-on: ubuntu-latest
     steps:
+      - name: List Files
+        run: |
+          pwd
+          ls
+          whoami
       - name: Simple JS Action
         id: greet
         # A job in a workflow can use actions, either self-written or
