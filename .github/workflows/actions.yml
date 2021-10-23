@@ -33,9 +33,8 @@ jobs:
         #
         # 1. GitHub provides an object called steps, which contains
         #    all the steps in a workflow.
-        # 2. In order to identify a step,
-        #    it needs to be provided with an ID, in this case 'greet'
-        #    as seen on line 10
+        # 2. In order to identify a step, it needs to be provided with
+        #    an ID, in this case 'greet' as seen on line 10.
         # 3. We define that we want to get an output from the action
         # 4. The parameter we want in this action is called 'time'
         run: echo "${{ steps.greet.outputs.time }}"
