@@ -45,7 +45,42 @@ jobs:
           npm -v
 ```
 
+### Event triggers in a workflow
+
+GitHub actions can be triggered in many stages of the development process. The most common would be when a developer
+pushes his code, but there are other events that can trigger one or more workflows.
+
+A simple event trigger in a workflow will look like this:
+
+```yaml
+name: Simple event trigger
+
+# The workflow in this case will be triggered when code is pushed, and is declared as an array.
+on: [push]
+```
+
+But what if you need something to be done when you make a pull request, assigns a pull request, closes it ect?
+Some activities has several activity types, such as the pull request. It can be opened, closed, assigned, synchronized and so on.
+GitHub lets us declare those activities as objects, where we can choose which types should trigger the workflow:
+
+```yaml
+name: Complex event trigger
+
+# In this case, the activities are a set of objects, where the objects activity type can be selected from an array:
+on:
+  push:
+  pull_request:
+    types: [closed, assigned, opened, reopened]
+```
+
+On this page you can see all the activities that can trigger an event:
+https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
+
 ### Links to examples
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
 - [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
+
+```
+
+```
