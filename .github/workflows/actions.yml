@@ -1,7 +1,16 @@
 name: Actions workflow
 
 on:
-  push:
+  # push:
+  # A workflow can be scheduled with a cron job, with the syntax:
+  # "${MINUTE} ${HOUR} ${DAY_OF_MONTH} ${MONTH} ${WEEK}"
+  # To help with creating your cron expression, you can use this tool:
+  # https://crontab.guru/
+  #
+  # The below cron job runs the workflow at every workday of the week,
+  # every week, every month
+  schedule:
+    - cron: "0/5 * * * * "
   pull_request:
     types: [closed, assigned, opened, reopened]
 

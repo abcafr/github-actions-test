@@ -28,7 +28,7 @@ name: Hello-World
 # The 'on' keyword determines which event(s) will trigger the workflow, for example on: [push, pull_request] ect.
 on: [push]
 
-# The jobs section holds all the jobs that the workflow will do.
+# The jobs section holds all the jobs that the workflow will execute.
 jobs:
   # The name of the job
   run-shell-command:
@@ -80,7 +80,3 @@ https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-work
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
 - [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
-
-```
-
-```
