@@ -2,7 +2,7 @@
 name: Shell Commands
 
 # The 'on' keyword determines which event(s) will trigger the workflow, for example on: [push, pull_request] ect.
-on: [pull]
+on: [pull_request]
 
 # The jobs section holds all the jobs that the workflow will do.
 jobs:
