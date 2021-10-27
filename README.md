@@ -76,7 +76,7 @@ on:
 On this page you can see all the activities that can trigger an event:
 https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 
-## triggering a workflow with a RESTful request with **repository_dispatch**
+## Triggering a workflow with a RESTful request with **repository_dispatch**
 
 We've seen two ways that a workflow can be triggered in GitHub:
 
