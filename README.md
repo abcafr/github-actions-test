@@ -80,13 +80,13 @@ https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-work
 
 We've seen two ways that a workflow can be triggered in GitHub:
 
-- An array of events: [push, pull_request] ect.
+- An array of events: [push, pull_request]
 - A triggering on an event type:
   pull_request:
-  types: [closed, assigned, opened] ect.
+  types: [closed, assigned, opened]
 
 The third way is with an event called **repository_dispatch**, and is triggered when a RESTful request is made to the repositorys API.
-This code:
+This workflow:
 
 ```yaml
 name: Trigger On Repository Dispatch
