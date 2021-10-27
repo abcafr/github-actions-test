@@ -76,7 +76,7 @@ on:
 On this page you can see all the activities that can trigger an event:
 https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 
-## triggering a workflow with a RESTful request with _repository_dispatch_
+## triggering a workflow with a RESTful request with **repository_dispatch**
 
 We've seen two ways that a workflow can be triggered in GitHub:
 
@@ -85,7 +85,7 @@ We've seen two ways that a workflow can be triggered in GitHub:
   pull_request:
   types: [closed, assigned, opened] ect.
 
-The third way is with an event called _repository_dispatch_, and is triggered when a RESTful request is made to the repositorys API.
+The third way is with an event called **repository_dispatch**, and is triggered when a RESTful request is made to the repositorys API.
 This code:
 
 ```yaml
@@ -96,7 +96,7 @@ on:
     types: [build]
 ```
 
-Is activated when a request, with the payload _build_, is sent to the API.
+Is activated when a request, with the event type **build**, is sent to the API.
 
 The URL to your repository_dispatch API follows this structure:
 
