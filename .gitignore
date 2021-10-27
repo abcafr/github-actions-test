@@ -1,2 +1,5 @@
 # Formatter configuration
 .prettierrc
+
+# Environment variables
+.env

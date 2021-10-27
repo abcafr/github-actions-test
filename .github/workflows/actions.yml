@@ -1,7 +1,12 @@
 name: Actions workflow
 
 on:
-  push:
+  # The repository dispatch event lets us trigger a workflow manually via
+  # RESTful requests, like GET and POST.
+  #
+  repository_dispatch:
+    types: [build]
+  # push:
   # A workflow can be scheduled with a cron job, with the syntax:
   # "${MINUTE} ${HOUR} ${DAY_OF_MONTH} ${MONTH} ${WEEK}"
   # To help with creating your cron expression, you can use this tool:
