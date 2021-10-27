@@ -76,7 +76,60 @@ on:
 On this page you can see all the activities that can trigger an event:
 https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 
+## The repository_dispatch trigger: triggering a workflow with a RESTful request
+
+We've seen two ways that a workflow can be triggered in GitHub:
+
+- An array of events: [push, pull_request] ect.
+- A triggering on an event type:
+  pull_request:
+  types: [closed, assigned, opened] ect.
+
+The third way is with an event called _repository_dispatch_, and is triggered when a RESTful request is made to the repositorys API.
+This code:
+
+```yaml
+name: Trigger On Repository Dispatch
+
+on:
+  repository_dispatch:
+    types: [build]
+```
+
+Is activated when a request, with the payload _build_, is sent to the API.
+
+The URL to your repository_dispatch API follows this structure:
+
+```yaml
+"https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/dispatches"
+```
+
+And the following information is needed with the request:
+
+```yaml
+# Headers
+"Accept": "application/vnd.github.everest-preview+json",
+"Content-Type": "application/json",
+"Authorization": "token ${GITHUB_TOKEN}"
+
+# payload
+data = {
+  # Necessary
+  "event_type": "build",
+  # Optional
+  "client_payload": {
+    "env": "production"
+  }
+
+}
+
+```
+
+Where $GITHUB_TOKEN is a token that you can create yourself, if it is for a personal project, or you can request to get access to that token
+if you are a part of that project.
+
 ### Links to examples
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
 - [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
+- [Making an API request to repository dispatch in Python(work in progress)](https://github.com/abcafr/github-actions-test/blob/main/api.py)
