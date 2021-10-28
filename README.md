@@ -11,6 +11,13 @@ GitHub actions is the automation of software delivery workflows, as per GitHub d
 
 To begin with, we will do some basic stuff, learn the terminology and slowly figure out how to use the features offered by GitHub actions to automate and optimize our CI/CD.
 
+### Links to examples
+
+- [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
+- [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
+- [Making an API request to repository dispatch in Python(work in progress)](https://github.com/abcafr/github-actions-test/blob/main/api.py)
+- [Using environment variables in your workflow]()
+
 ### Creating a workflow
 
 1. To create a GitHub workflow, create the following path in your git repository: **.github/workflows/**.
@@ -45,7 +52,7 @@ jobs:
           npm -v
 ```
 
-### GitHub events & activity types
+## GitHub events & activity types
 
 GitHub actions can be triggered in many stages of the development process. The most common would be when a developer
 pushes his code, but there are other events that can trigger one or more workflows.
@@ -76,7 +83,7 @@ on:
 On this page you can see all the activities that can trigger an event:
 https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 
-## Triggering a workflow with a RESTful request with **repository_dispatch**
+### Triggering a workflow with a RESTful request with **repository_dispatch**
 
 We've seen two ways that a workflow can be triggered in GitHub:
 
@@ -145,9 +152,3 @@ on:
 ```
 
 This workflow uses the 'labeler' action, and for the runner to be able to tag the pull requests, it needs to authenticate with the GITHUB_TOKEN secret.
-
-### Links to examples
-
-- [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
-- [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
-- [Making an API request to repository dispatch in Python(work in progress)](https://github.com/abcafr/github-actions-test/blob/main/api.py)
