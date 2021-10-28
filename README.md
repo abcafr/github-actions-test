@@ -11,6 +11,33 @@ GitHub actions is the automation of software delivery workflows, as per GitHub d
 
 To begin with, we will do some basic stuff, learn the terminology and slowly figure out how to use the features offered by GitHub actions to automate and optimize our CI/CD.
 
+## Prerequisites
+
+### SSH and GitHub
+
+If you are planning to use SSH over HTTPS to clone repositories (and you are), you need to do some configuration in order to make this possible:
+
+First, create and add an SSH key to your host, and add it to GitHub afterwards. There is a great guide on how to do that here:
+
+Secondly, because we are behind a corporate proxy, we need to configure our ssh-agent to be able to make our ssh-tunnel through that.
+Here is how to do that:
+l. Go to your .ssh folder (typically in your home directory: /home/$USER/.ssh)
+l. See if there is a config file with **ls -laØ**
+  l. If there is, go to the next step
+  l. If not, add it with **touch config**
+l. Add this to the config file:
+
+```bash
+Host github.com
+  HostName github.com
+  User $GITHUB_USERNAME
+  AddKeysToAgent yes
+  PreferredAuthentications publickey
+  ProxyCommand nc -X connect -x httpproxy.alm.brand.dk:8080 %h %p
+```
+
+Now your client should be able to pull repositories from GitHub with ssh.
+
 ### Links to examples
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
