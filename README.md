@@ -37,7 +37,7 @@ Host github.com
   ProxyCommand nc -X connect -x $ALMBRAND_PROXY %h %p
 ```
 
-Where _GITHUB_USERNAME_ is your login, and _ALMBRAND_PROXY_ is the proxy URL.
+Where `GITHUB_USERNAME` is your login, and `ALMBRAND_PROXY` is the proxy URL.
 
 Now your client should be able to pull repositories from GitHub with ssh.
 
