@@ -101,7 +101,7 @@ will activate when a request, with the event type "**build**", is sent to the AP
 The URL to your repository_dispatch API follows this structure:
 
 ```yaml
-"https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/dispatches"
+"https://api.github.com/repos/${{ GITHUB_USER }}/${{ GITHUB_REPO }}/dispatches"
 ```
 
 And the following information is needed with the request:
@@ -110,7 +110,7 @@ And the following information is needed with the request:
 # Headers
 "Accept": "application/vnd.github.everest-preview+json",
 "Content-Type": "application/json",
-"Authorization": "token ${GITHUB_PERSONAL_TOKEN}"
+"Authorization": "token ${{ GITHUB_PERSONAL_TOKEN }}"
 
 # payload
 data = {
@@ -125,7 +125,7 @@ data = {
 
 ```
 
-Where $GITHUB_PERSONAL_TOKEN is a token that you can create yourself for authentication.
+Where GITHUB_PERSONAL_TOKEN is a token that you can create yourself for authentication.
 
 ### Using the GITHUB_TOKEN for authenticating
 
