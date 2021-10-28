@@ -24,8 +24,8 @@ Here is how to do that:
 
 1. Go to your .ssh folder (typically in your home directory: /home/$USER/.ssh)
 1. See if there is a config file with **ls -la**
-  1. If there is, go to the next step
-  1. If not, add it with **touch config**
+    1. If there is, go to the next step
+    1. If not, add it with **touch config**
 1. Add this to the config file:
 
 ```bash
