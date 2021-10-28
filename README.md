@@ -31,13 +31,13 @@ Here is how to do that:
 ```bash
 Host github.com
   HostName github.com
-  User $GITHUB_USERNAME
+  User $GITHUB_ACTOR
   AddKeysToAgent yes
   PreferredAuthentications publickey
   ProxyCommand nc -X connect -x $ALMBRAND_PROXY %h %p
 ```
 
-Where `GITHUB_USERNAME` is your login, and `ALMBRAND_PROXY` is the proxy URL.
+Where `GITHUB_ACTOR` is your login, and `ALMBRAND_PROXY` is the proxy URL.
 
 Now your client should be able to pull repositories from GitHub with ssh.
 
