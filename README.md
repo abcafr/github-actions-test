@@ -96,7 +96,7 @@ on:
     types: [build]
 ```
 
-Is activated when a request, with the event type **build**, is sent to the API.
+will activate when a request, with the event type "**build**", is sent to the API.
 
 The URL to your repository_dispatch API follows this structure:
 

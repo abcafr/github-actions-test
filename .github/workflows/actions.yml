@@ -1,12 +1,26 @@
 name: Actions workflow
 
 on:
+  push:
+    # We can choose which branch pushes will trigger this workflow.
+    branches:
+      - master
+      # Other than strings, the branches can be patterns, for example if we
+      # want to push to all branches starting with feature/
+      - "feature/*" # This matches feature/featureA but not feature/featureA/featA
+      - "feature/**" # This matches feature/featureA/featA
+      - "!feature/featureB" # This will exclude feature/featureB from triggering the workflow
+
+    # Like with branches, workflows can be triggered when pushed to certain versions.
+    tags:
+      - "v1.*"
+      - "!v2.*"
+
   # The repository dispatch event lets us trigger a workflow manually via
   # RESTful requests, like GET and POST.
   #
-  repository_dispatch:
-    types: [build]
-  # push:
+  # repository_dispatch:
+  #  types: [build]
   # A workflow can be scheduled with a cron job, with the syntax:
   # "${MINUTE} ${HOUR} ${DAY_OF_MONTH} ${MONTH} ${WEEK}"
   # To help with creating your cron expression, you can use this tool:
