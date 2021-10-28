@@ -21,11 +21,12 @@ First, create and add an SSH key to your host, and add it to GitHub afterwards. 
 
 Secondly, because we are behind a corporate proxy, we need to configure our ssh-agent to be able to make our ssh-tunnel through that.
 Here is how to do that:
-l. Go to your .ssh folder (typically in your home directory: /home/$USER/.ssh)
-l. See if there is a config file with **ls -laØ**
-  l. If there is, go to the next step
-  l. If not, add it with **touch config**
-l. Add this to the config file:
+
+1. Go to your .ssh folder (typically in your home directory: /home/$USER/.ssh)
+1. See if there is a config file with **ls -la**
+  1. If there is, go to the next step
+  1. If not, add it with **touch config**
+1. Add this to the config file:
 
 ```bash
 Host github.com
@@ -33,8 +34,10 @@ Host github.com
   User $GITHUB_USERNAME
   AddKeysToAgent yes
   PreferredAuthentications publickey
-  ProxyCommand nc -X connect -x httpproxy.alm.brand.dk:8080 %h %p
+  ProxyCommand nc -X connect -x $ALMBRAND_PROXY %h %p
 ```
+
+Where _GITHUB_USERNAME_ is your login, and _ALMBRAND_PROXY_ is the proxy URL.
 
 Now your client should be able to pull repositories from GitHub with ssh.
 
