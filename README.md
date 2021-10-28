@@ -110,7 +110,7 @@ And the following information is needed with the request:
 # Headers
 "Accept": "application/vnd.github.everest-preview+json",
 "Content-Type": "application/json",
-"Authorization": "token ${GITHUB_TOKEN}"
+"Authorization": "token ${GITHUB_PERSONAL_TOKEN}"
 
 # payload
 data = {
@@ -125,8 +125,26 @@ data = {
 
 ```
 
-Where $GITHUB_TOKEN is a token that you can create yourself, if it is for a personal project, or you can request to get access to that token
-if you are a part of that project.
+Where $GITHUB_PERSONAL_TOKEN is a token that you can create yourself for authentication.
+
+### Using the GITHUB_TOKEN for authenticating
+
+Sometimes you need authentication when using some GitHub action, like the below example:
+
+```yaml
+name: Pull Request Labeler
+on:
+  pull_request:
+  jobs:
+    labeler:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/labeler@v2
+          with:
+            repo-token: ${{ secrets.GITHUB_TOKEN }}
+```
+
+This workflow uses the 'labeler' action, and for the runner to be able to tag the pull requests, it needs to authenticate with the GITHUB_TOKEN secret.
 
 ### Links to examples
 
