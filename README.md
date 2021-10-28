@@ -16,7 +16,7 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
 - [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
 - [Making an API request to repository dispatch in Python(work in progress)](https://github.com/abcafr/github-actions-test/blob/main/api.py)
-- [Using environment variables in your workflow]()
+- [Using environment variables in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/env.yml)
 
 ### Creating a workflow
 
