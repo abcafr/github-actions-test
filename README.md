@@ -18,6 +18,7 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
 - [GitHub Actions: workflows, expressions and examples](#github-actions-workflows-expressions-and-examples)
   - [Creating a workflow](#creating-a-workflow)
   - [A sample workflow](#a-sample-workflow)
+  - [Expressions & contexts](#expressions--contexts)
 - [GitHub events & activity types](#github-events--activity-types)
   - [Triggering a workflow with a RESTful request with repository_dispatch](#user-content-triggering-a-workflow-with-a-restful-request-with-repository_dispatch)
   - [Encrypting environment variables](#encrypting-environment-variables)
