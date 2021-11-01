@@ -104,7 +104,22 @@ An expression can be:
 - A value in an object: `${{ object.value }}`
 - A boolean or a string (and operators): `${{ true || 'abc' }}`
 
-[GitHub provides some objects we can use in our workflows.](https://docs.github.com/en/actions/learn-github-actions/contexts)
+[GitHub provides some objects we can use in our workflows.](https://docs.github.com/en/actions/learn-github-actions/contexts). However, expressions can also evaluate functions. Observe the snippet below:
+
+```yaml
+jobs:
+  get-github-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+```
+
+In the environments section, a `GITHUB_CONTEXT` variable is set to be the output of the function `toJSON(github)`.
+Here, `github` is the object that github provides us, and `toJSON()` is the function that evaluates the object as a JSON object.
+Lastly, the job will print out the entire `github` object in JSON format.
 
 ## GitHub events & activity types
 

@@ -2,7 +2,7 @@ name: Context
 on: push
 
 jobs:
-  one:
+  get-github-context:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
