@@ -117,7 +117,7 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 ```
 
-In the environments section, a `GITHUB_CONTEXT` variable is set to be the output of the function `toJSON(github)`.
+In the `env` section, a `GITHUB_CONTEXT` variable is set to be the output of the function `toJSON(github)`.
 
 - `github` is the object that github provides us
 - `toJSON()` is the function that evaluates the object as a JSON object.
