@@ -15,11 +15,11 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
 
 - [Prerequisites](#prerequisites)
   - [SSH and GitHub](#ssh-and-github)
-- [GitHub Actions: workflows and examples](#github-actions-workflows-and-examples)
+- [GitHub Actions: workflows, expressions and examples](#github-actions-workflows-expressions-and-examples)
   - [Creating a workflow](#creating-a-workflow)
   - [A sample workflow](#a-sample-workflow)
-  - [GitHub events & activity types](#github-events--activity-types)
-    - [Triggering a workflow with a RESTful request with repository_dispatch](#user-content-triggering-a-workflow-with-a-restful-request-with-repository_dispatch)
+- [GitHub events & activity types](#github-events--activity-types)
+  - [Triggering a workflow with a RESTful request with repository_dispatch](#user-content-triggering-a-workflow-with-a-restful-request-with-repository_dispatch)
   - [Encrypting environment variables](#encrypting-environment-variables)
   - [Using the GITHUB_TOKEN for authenticating](#user-content-using-the-github_token-for-authenticating)
   - [Encrypting and decrypting files](#encrypting-and-decrypting-files)
@@ -54,7 +54,7 @@ Where `GITHUB_ACTOR` is your login, and `ALMBRAND_PROXY` is the proxy URL.
 
 Now your client should be able to pull repositories from GitHub with ssh.
 
-## GitHub Actions: worflows and examples
+## GitHub Actions: worflows, expressions and examples
 
 ### Creating a workflow
 
@@ -89,6 +89,19 @@ jobs:
           node -v
           npm -v
 ```
+
+### Expressions & contexts
+
+In our workflows we will use expressions, which has the syntax `${{ EXPRESSION }}`. An expression evaluates the value of the objects
+inside the curly brackets, and puts it as a value instead.
+
+An expression can be:
+One value or object: `${{ object }}`
+A value in an object: `${{ object.value }}`
+A boolean or a string (and operators): `${{ true || 'abc' }}`
+
+[GitHub provides some objects we can use in our workflows.](https://docs.github.com/en/actions/learn-github-actions/contexts) 
+
 
 ## GitHub events & activity types
 
@@ -165,7 +178,6 @@ data = {
   "client_payload": {
     "env": "production"
   }
-
 }
 
 ```
@@ -177,7 +189,7 @@ Where `GITHUB_PERSONAL_TOKEN` is a token that you can create yourself for authen
 In your workflow files, you will encounter situations where we need to access some environment variables, that should not be uploaded to the repository.
 This could be an API-key, an access token, a password ect.
 For this, we can [enter environment variables in our repository](https://docs.github.com/en/actions/learn-github-actions/environment-variables)
-To do this, go to **Repository** -> **Settings** -> **Secrets** and add the environment variable.
+To do this in your Repository, go to the repositorys **Settings** -> **Secrets** and add the environment variable.
 
 To access this again, GitHub gives the secrets as objects, so it is accessible with the following: `${{ secrets.MY_VARIABLE }}`
 
@@ -243,6 +255,8 @@ jobs:
       - name: Print our file content
         run: cat $HOME/secret.json
 ```
+
+You should now be able to see the contents of `secret.json` in the last step in the job.
 
 ### Links to examples
 
