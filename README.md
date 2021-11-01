@@ -20,7 +20,9 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
   - [A sample workflow](#a-sample-workflow)
   - [Expressions & contexts](#expressions--contexts)
 - [GitHub events & activity types](#github-events--activity-types)
+  - [Event triggers](#event-triggers)
   - [Triggering a workflow with a RESTful request with repository_dispatch](#user-content-triggering-a-workflow-with-a-restful-request-with-repository_dispatch)
+- [Events, environment variables and encryption](#events-environment-varaibles-and-decryption)
   - [Encrypting environment variables](#encrypting-environment-variables)
   - [Using the GITHUB_TOKEN for authenticating](#user-content-using-the-github_token-for-authenticating)
   - [Encrypting and decrypting files](#encrypting-and-decrypting-files)
@@ -106,6 +108,8 @@ An expression can be:
 
 ## GitHub events & activity types
 
+### Event triggers
+
 GitHub actions can be triggered in many stages of the development process. The most common would be when a developer
 pushes his code, but there are other events that can trigger one or more workflows.
 
@@ -115,7 +119,7 @@ A simple event trigger in a workflow will look like this:
 name: Simple event trigger
 
 # The workflow in this case will be triggered when code is pushed, and is declared as an array.
-on: [push]
+on: [push, pull_request]
 ```
 
 But what if you need something to be done when you make a pull request, assigns a pull request, closes it ect?
@@ -123,7 +127,7 @@ Some activities has several activity types, such as the pull request. It can be 
 GitHub lets us declare those activities as objects, where we can choose which types should trigger the workflow:
 
 ```yaml
-name: Complex event trigger
+name: More complex event trigger
 
 # In this case, the activities are a set of objects, where the objects activity type can be selected from an array:
 on:
@@ -184,6 +188,10 @@ data = {
 ```
 
 Where `GITHUB_PERSONAL_TOKEN` is a token that you can create yourself for authentication.
+
+## Environments, encryption and authentication
+
+This section gives some insights as to how you can create and use environment variables in GitHub actions, and use those to authenticate jobs, decrypt files and other useful tools needed to make your workflows as standardized and flexible as possible.
 
 ### Encrypting environment variables
 
