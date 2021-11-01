@@ -21,7 +21,7 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
   - [Expressions & contexts](#expressions--contexts)
   - [The if-key and job status check functions](#the-if-key-and-job-status-check-functions)
     - [The if-key](#the-if-key)
-    - [The job status check functions](#the-job-status-check-functions)
+    - [The job status check functions](#job-status-check-functions)
 - [GitHub events & activity types](#github-events--activity-types)
   - [Event triggers](#event-triggers)
   - [Triggering a workflow with a RESTful request with repository_dispatch](#user-content-triggering-a-workflow-with-a-restful-request-with-repository_dispatch)
@@ -128,7 +128,7 @@ In the `env` section, a `GITHUB_CONTEXT` variable is set to be the output of the
 
 [You can find a list of the functions that you can use in GitHub here](https://docs.github.com/en/actions/learn-github-actions/expressions).
 
-#### The if-key and job status check functions
+### The if-key and job status check functions
 
 Sometimes you want some jobs or steps in your workflow to run on certain conditions, like if a push event is triggered, or if a job fails to run.
 
