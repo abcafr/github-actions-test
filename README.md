@@ -20,6 +20,7 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
   - [A sample workflow](#a-sample-workflow)
   - [GitHub events & activity types](#github-events--activity-types)
     - [Triggering a workflow with a RESTful request with repository_dispatch](#user-content-triggering-a-workflow-with-a-restful-request-with-repository_dispatch)
+  - [Encrypting environment variables](#encrypting-environment-variables)
   - [Using the GITHUB_TOKEN for authenticating](#user-content-using-the-github_token-for-authenticating)
   - [Encrypting and decrypting files](#encrypting-and-decrypting-files)
 
@@ -171,6 +172,15 @@ data = {
 
 Where `GITHUB_PERSONAL_TOKEN` is a token that you can create yourself for authentication.
 
+### Encrypting environment variables
+
+In your workflow files, you will encounter situations where we need to access some environment variables, that should not be uploaded to the repository.
+This could be an API-key, an access token, a password ect.
+For this, we can [enter environment variables in our repository](https://docs.github.com/en/actions/learn-github-actions/environment-variables)
+To do this, go to **Repository** -> **Settings** -> **Secrets** and add the environment variable.
+
+To access this again, GitHub gives the secrets as objects, so it is accessible with the following: `${{ secrets.MY_VARIABLE }}`
+
 ### Using the GITHUB_TOKEN for authenticating
 
 Sometimes you need authentication when using some GitHub action, like the below example:
@@ -191,6 +201,20 @@ on:
 This workflow uses the 'labeler' action, and for the runner to be able to tag the pull requests, it needs to authenticate with the `GITHUB_TOKEN` secret.
 
 ### Encrypting and decrypting files
+
+Because an environment variable in GitHub has a max memory limit, we could eventually find ourselves in a situation where we have a large datafile with secrets that we need to access in our workflow. Instead of entering them one by one in GitHub, we can encrypt it when we push it to GitHub, and decrypt it when we need it in our workflow.
+
+For encrypting the file we need a tool, and here we will use [The GNU Privacy Guard (GPG)](https://gnupg.org)
+
+On Mac/Linux, the syntax for encrypting a file with GPG is:
+`gpg --symmetric --cipher-algo AES256 my_secret.json`
+
+You will be prompted to enter a password for the encrypted file, and a **my_secret.json.gpg** file will be created.
+
+```diff
+! if you are connected to a host via SSH, you will not be promted a password with the above command.
+To get around this, pass `--pinentry-mode=loopback` with the other arguments to be prompted a passphrase in your SSH-terminal.
+```
 
 ### Links to examples
 
