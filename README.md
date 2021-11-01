@@ -53,7 +53,7 @@ Where `GITHUB_ACTOR` is your login, and `ALMBRAND_PROXY` is the proxy URL.
 
 Now your client should be able to pull repositories from GitHub with ssh.
 
-# GitHub Actions: worflows and examples
+## GitHub Actions: worflows and examples
 
 ### Creating a workflow
 
