@@ -15,6 +15,13 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
 
 - [Prerequisites](#prerequisites)
   - [SSH and GitHub](#ssh-and-github)
+- [GitHub Actions: workflows and examples](#github-actions-workflows-and-examples)
+  - [Creating a workflow](#creating-a-workflow)
+  - [A sample workflow](#a-sample-workflow)
+  - [GitHub events & activity types](#github-events--activity-types)
+    - [Triggering a workflow with a RESTful request with repository_dispatch](#user-content-triggering-a-workflow-with-a-restful-request-with-repository_dispatch)
+  - [Using the GITHUB_TOKEN for authenticating](#user-content-using-the-github_token-for-authenticating)
+  - [Encrypting and decrypting files](#encrypting-and-decrypting-files)
 
 ## Prerequisites
 
@@ -46,7 +53,7 @@ Where `GITHUB_ACTOR` is your login, and `ALMBRAND_PROXY` is the proxy URL.
 
 Now your client should be able to pull repositories from GitHub with ssh.
 
-# GitHub Actions: Worflows and examples
+# GitHub Actions: worflows and examples
 
 ### Creating a workflow
 
