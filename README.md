@@ -123,6 +123,8 @@ In the `env` section, a `GITHUB_CONTEXT` variable is set to be the output of the
 - `toJSON()` is the function that evaluates the object as a JSON object.
 - The echo command will print out the entire `github` object in JSON format.
 
+[You can find a list of the functions that you can use in GitHub here](https://docs.github.com/en/actions/learn-github-actions/expressions).
+
 ## GitHub events & activity types
 
 ### Event triggers
