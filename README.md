@@ -125,6 +125,63 @@ In the `env` section, a `GITHUB_CONTEXT` variable is set to be the output of the
 
 [You can find a list of the functions that you can use in GitHub here](https://docs.github.com/en/actions/learn-github-actions/expressions).
 
+#### The if-key and job status check functions
+
+Sometimes you want some jobs or steps in your workflow to run on certain conditions, like if a push event is triggered, or if a job fails to run.
+
+##### The if-key
+
+Say you want your workflow to do something on a pull request, and something else on a pull_request. You can use the if-key like so:
+
+```yaml
+name: The If-key
+
+on: [push, pull_request]
+
+jobs:
+  push:
+  runs-on: ubuntu-latest
+  if: github.event_name == 'push'
+  steps:
+    - name: print push message
+      run: echo "This will only print on a push event"
+  pull_request:
+  runs-on: ubuntu-latest
+  if: github.event_name == 'pull_request'
+  steps:
+    - name: print pull_request message
+      run: echo "This will only print on a pull_request event"
+
+```
+
+#### Job status check functions
+
+You can use job status check functions like `failure()` or `always()`to control the flow of your steps:
+
+```yaml
+name: Job Status Check Functions
+
+on: push
+
+jobs:
+  counter:
+  runs-on: ubuntu-latest
+    - name: print 1
+      run: echo 1
+    - name: print 2
+      run: echo 2
+    - name: print 3
+      if: failure()
+      run: echo 3
+    - name: print 4
+      run: echo 4
+    - name: print 5
+      if: always()
+      run: echo 5
+```
+
+[You can find a list of the job status check functions here](https://docs.github.com/en/actions/learn-github-actions/expressions#job-status-check-functions)
+
 ## GitHub events & activity types
 
 ### Event triggers
