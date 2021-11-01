@@ -19,6 +19,9 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
   - [Creating a workflow](#creating-a-workflow)
   - [A sample workflow](#a-sample-workflow)
   - [Expressions & contexts](#expressions--contexts)
+  - [The if-key and job status check functions](#the-if-key-and-job-status-check-functions)
+    - [The if-key](#the-if-key)
+    - [The job status check functions](#the-job-status-check-functions)
 - [GitHub events & activity types](#github-events--activity-types)
   - [Event triggers](#event-triggers)
   - [Triggering a workflow with a RESTful request with repository_dispatch](#user-content-triggering-a-workflow-with-a-restful-request-with-repository_dispatch)
@@ -165,20 +168,29 @@ on: push
 
 jobs:
   counter:
-  runs-on: ubuntu-latest
-    - name: print 1
-      run: echo 1
-    - name: print 2
-      run: echo 2
-    - name: print 3
-      if: failure()
-      run: echo 3
-    - name: print 4
-      run: echo 4
-    - name: print 5
-      if: always()
-      run: echo 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1
+        run: echo 1
+      - name: 2
+        run: echo 2
+      - name: 3
+        if: failure()
+        run: echo 3
+      - name: 4
+        run: eccho 4
+      - name: 5
+        if: always()
+        run: echo 5
 ```
+
+If we observe the snippet above, the above workflow will print '1, 2, 3, 5", because:
+
+- 1 will run
+- 2 will run
+- 3 will not run, because the `if: failure()` means it will only run if the job above fails
+- 4 will fail because there is no such command as `eccho`
+- 5 will run because `if: always()` means that the step will run no matter what
 
 [You can find a list of the job status check functions here](https://docs.github.com/en/actions/learn-github-actions/expressions#job-status-check-functions)
 
