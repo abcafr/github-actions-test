@@ -211,10 +211,9 @@ On Mac/Linux, the syntax for encrypting a file with GPG is:
 
 You will be prompted to enter a password for the encrypted file, and a **my_secret.json.gpg** file will be created.
 
-```html
-<b>NB</b> if you are connected to a host via SSH, you will not be promted a
-password with the above command. To get around this, pass
---pinentry-mode=loopback with the other arguments to be prompted a passphrase in
+```
+*NB: if you are connected to a host via SSH, you will not be promted a password with the above command.
+To get around this, pass --pinentry-mode=loopback with the other arguments to be prompted a passphrase in
 your terminal.
 ```
 
