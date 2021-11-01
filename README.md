@@ -184,7 +184,7 @@ jobs:
         run: echo 5
 ```
 
-If we observe the snippet above, the above workflow will print '1, 2, 3, 5", because:
+If we observe the snippet above, the above workflow will print '1, 2, 5", because:
 
 - 1 will run
 - 2 will run
