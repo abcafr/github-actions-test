@@ -212,9 +212,34 @@ On Mac/Linux, the syntax for encrypting a file with GPG is:
 You will be prompted to enter a password for the encrypted file, and a **my_secret.json.gpg** file will be created.
 
 ```
-*NB: if you are connected to a host via SSH, you will not be promted a password with the above command.
+NB: if you are connected to a host via SSH, you will not be promted a password with the above command.
 To get around this, pass --pinentry-mode=loopback with the other arguments to be prompted a passphrase in
 your terminal.
+```
+
+With the encrypted file in our repository, we can now decrypt it in a job in a workflow:
+
+```yaml
+name: Decrypt an encrypted file
+
+on: [push]
+
+jobs:
+  decrypt:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks out the repository in the VM
+      - uses: actions/checkout@v1
+      - name: Decrypt file
+        # This command will take the encryptet file 'secret.json.gpg' and decrypt it
+        # using the passphrase given as a secret in the environment, and output it as
+        # secret.json in the home directory.
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE"
+          --output $HOME/secret.json secret.json.gpg
+        env:
+          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+      - name: Print our file content
+        run: cat $HOME/secret.json
 ```
 
 ### Links to examples
