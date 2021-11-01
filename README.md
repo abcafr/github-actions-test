@@ -11,6 +11,11 @@ GitHub actions is the automation of software delivery workflows, as per GitHub d
 
 To begin with, we will do some basic stuff, learn the terminology and slowly figure out how to use the features offered by GitHub actions to automate and optimize our CI/CD.
 
+## Index
+
+- [Prerequisites](#prerequisites)
+  - [SSH and GitHub](#ssh-and-github)
+
 ## Prerequisites
 
 ### SSH and GitHub
@@ -41,12 +46,7 @@ Where `GITHUB_ACTOR` is your login, and `ALMBRAND_PROXY` is the proxy URL.
 
 Now your client should be able to pull repositories from GitHub with ssh.
 
-### Links to examples
-
-- [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
-- [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
-- [Making an API request to repository dispatch in Python(work in progress)](https://github.com/abcafr/github-actions-test/blob/main/api.py)
-- [Using environment variables in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/env.yml)
+# GitHub Actions: Worflows and examples
 
 ### Creating a workflow
 
@@ -182,3 +182,12 @@ on:
 ```
 
 This workflow uses the 'labeler' action, and for the runner to be able to tag the pull requests, it needs to authenticate with the `GITHUB_TOKEN` secret.
+
+### Encrypting and decrypting files
+
+### Links to examples
+
+- [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
+- [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
+- [Making an API request to repository dispatch in Python(work in progress)](https://github.com/abcafr/github-actions-test/blob/main/api.py)
+- [Using environment variables in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/env.yml)
