@@ -96,12 +96,12 @@ In our workflows we will use expressions, which has the syntax `${{ EXPRESSION }
 inside the curly brackets, and puts it as a value instead.
 
 An expression can be:
-One value or object: `${{ object }}`
-A value in an object: `${{ object.value }}`
-A boolean or a string (and operators): `${{ true || 'abc' }}`
 
-[GitHub provides some objects we can use in our workflows.](https://docs.github.com/en/actions/learn-github-actions/contexts) 
+- One value or object: `${{ object }}`
+- A value in an object: `${{ object.value }}`
+- A boolean or a string (and operators): `${{ true || 'abc' }}`
 
+[GitHub provides some objects we can use in our workflows.](https://docs.github.com/en/actions/learn-github-actions/contexts)
 
 ## GitHub events & activity types
 
