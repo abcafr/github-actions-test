@@ -119,7 +119,7 @@ jobs:
 
 In the `env` section, a `GITHUB_CONTEXT` variable is set to be the output of the function `toJSON(github)`.
 
-- `github` is the object that github provides us
+- `github` is the object that github provides us, with all sorts of metadata
 - `toJSON()` is the function that evaluates the object as a JSON object.
 - The echo command will print out the entire `github` object in JSON format.
 
