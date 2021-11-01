@@ -237,6 +237,8 @@ jobs:
         run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE"
           --output $HOME/secret.json secret.json.gpg
         env:
+          # This gets the passphrase in your repository, and adds it as
+          # an environment variable
           PASSPHRASE: ${{ secrets.PASSPHRASE }}
       - name: Print our file content
         run: cat $HOME/secret.json
