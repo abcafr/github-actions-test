@@ -2,21 +2,7 @@ name: Context
 on: [push, pull_request]
 
 jobs:
-  counter:
-    runs-on: ubuntu-latest
-    steps:
-      - name: print 1
-        run: echo 1
-      - name: print 2
-        run: echo 2
-      - name: print 3
-        if: failure()
-        run: echo 3
-      - name: print 4
-        run: echo 4
-      - name: print 5
-        if: always()
-        run: echo 5
+  
   functions:
     runs-on: ubuntu-latest
     steps:

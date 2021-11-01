@@ -132,7 +132,7 @@ In the `env` section, a `GITHUB_CONTEXT` variable is set to be the output of the
 
 Sometimes you want some jobs or steps in your workflow to run on certain conditions, like if a push event is triggered, or if a job fails to run.
 
-##### The if-key
+#### The if-key
 
 Say you want your workflow to do something on a pull request, and something else on a pull_request. You can use the if-key like so:
 
