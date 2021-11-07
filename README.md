@@ -29,7 +29,8 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
   - [Encrypting environment variables](#encrypting-environment-variables)
   - [Using the GITHUB_TOKEN for authenticating](#user-content-using-the-github_token-for-authenticating)
   - [Encrypting and decrypting files](#encrypting-and-decrypting-files)
-- [Strategy: setting up different environments in a workflow](#strategy-setting-up-different-environments-in-a-workflow)
+- [Strategy, matrixes and Docker](#strategy-matrixes-and-docker)
+  - [Strategy](#strategy)
 
 ## Prerequisites
 
