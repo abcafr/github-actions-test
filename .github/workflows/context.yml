@@ -2,7 +2,6 @@ name: Context
 on: [push, pull_request]
 
 jobs:
-  
   functions:
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +18,7 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: eccho "$GITHUB_CONTEXT"
+        run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         # This condition lets us run this step, even if the previous step fails.
         if: failure()
