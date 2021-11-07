@@ -29,6 +29,7 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
   - [Encrypting environment variables](#encrypting-environment-variables)
   - [Using the GITHUB_TOKEN for authenticating](#user-content-using-the-github_token-for-authenticating)
   - [Encrypting and decrypting files](#encrypting-and-decrypting-files)
+- [Strategy: setting up different environments in a workflow](#strategy-setting-up-different-environments-in-a-workflow)
 
 ## Prerequisites
 
@@ -355,9 +356,11 @@ jobs:
 
 You should now be able to see the contents of `secret.json` in the last step in the job.
 
+## Strategy: setting up different environments in a workflow
+
 ### Links to examples
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
 - [Using an action in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/actions.yml)
 - [Making an API request to repository dispatch in Python(work in progress)](https://github.com/abcafr/github-actions-test/blob/main/api.py)
-- [Using environment variables in your workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/env.yml)
+- [Environment variables, authenticating and encrypting](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/env.yml)
