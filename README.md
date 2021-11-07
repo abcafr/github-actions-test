@@ -387,7 +387,36 @@ jobs:
 
 This will print the version of node that comes with the VM, and the version that we specifies in the 'Log node version' job.
 
-But what if we want to test it off for all versions
+But what if we want to test it for several versions? Instead of copy/pasting our job and changing the version, we can use the **strategy** and **matrix** keys:
+
+```yaml
+name: Check & set node version for several versions on several OS's
+on: push
+
+jobs:
+  node-version:
+    strategy:
+      matrix:
+        # This key runs the jobs on every os ind the array
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        # This key defines the node version to be set on every job
+        node_version: [6, 8, 10]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Log node version
+        run: node -v
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: Log node version again
+        run: node -v
+```
+
+Now this workflow will run first on MacOS, set node version 6, 8 and 10 in separate jobs, move on to ubuntu and so on.
+
+Notice that the `runs-on` and `node-version` keys has been replaced, because the `matrix` object allows us to use the context specific variable of the running job.
+This allows us to run a lot of the same kinds of jobs with different variables, without having a lot of redundant code.
+
 ### Links to examples
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
