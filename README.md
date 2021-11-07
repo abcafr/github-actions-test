@@ -356,8 +356,38 @@ jobs:
 
 You should now be able to see the contents of `secret.json` in the last step in the job.
 
-## Strategy: setting up different environments in a workflow
+## Strategy, matrixes and Docker
 
+It is time to take a look at a higher level as to how you can reuse your code in different environments, utilize Docker in your workflows, and other helpful tools.
+
+### Strategy
+
+In many cases, you want your pipeline to test your code in different environments, maybe with different versions of software ect.
+
+Let's say that we're developing a NodeJS app, and we want to test how it would behave in different versions of the software.
+We would write something like this:
+
+```yaml
+name: Check & set node version
+on: push
+
+jobs:
+  node-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log node version
+        run: node -v
+        # Uses the setup-node action to install the specified version of node on the vm
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 6
+      - name: Log node version again
+        run: node -v
+```
+
+This will print the version of node that comes with the VM, and the version that we specifies in the 'Log node version' job.
+
+But what if we want to test it off for all versions
 ### Links to examples
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
