@@ -30,7 +30,7 @@ To begin with, we will do some basic stuff, learn the terminology and slowly fig
   - [Using the GITHUB_TOKEN for authenticating](#user-content-using-the-github_token-for-authenticating)
   - [Encrypting and decrypting files](#encrypting-and-decrypting-files)
 - [Strategy, matrixes and Docker](#strategy-matrixes-and-docker)
-  - [Strategy](#strategy)
+  - [Strategy and matrix](#strategy-and-matrix)
 
 ## Prerequisites
 
@@ -361,7 +361,7 @@ You should now be able to see the contents of `secret.json` in the last step in 
 
 It is time to take a look at a higher level as to how you can reuse your code in different environments, utilize Docker in your workflows, and other helpful tools.
 
-### Strategy
+### Strategy and matrix
 
 In many cases, you want your pipeline to test your code in different environments, maybe with different versions of software ect.
 
@@ -417,6 +417,8 @@ Now this workflow will run first on MacOS, set node version 6, 8 and 10 in separ
 
 Notice that the `runs-on` and `node-version` keys has been replaced, because the `matrix` object allows us to use the context specific variable of the running job.
 This allows us to run a lot of the same kinds of jobs with different variables, without having a lot of redundant code.
+
+
 
 ### Links to examples
 
