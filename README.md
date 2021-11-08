@@ -418,8 +418,13 @@ Now this workflow will run first on MacOS, set node version 6, 8 and 10 in separ
 Notice that the `runs-on` and `node-version` keys has been replaced, because the `matrix` object allows us to use the context specific variable of the running job.
 This allows us to run a lot of the same kinds of jobs with different variables, without having a lot of redundant code.
 
+## Using docker in workflows
 
+We can also utilize the power of containers in our workflows. Here is a simple workflow, which will run inside an `alpine` image:
 
+```yaml
+
+```
 ### Links to examples
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
