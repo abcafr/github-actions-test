@@ -423,8 +423,23 @@ This allows us to run a lot of the same kinds of jobs with different variables, 
 We can also utilize the power of containers in our workflows. Here is a simple workflow, which will run inside an `alpine` image:
 
 ```yaml
+name: Container
+on: push
 
+jobs:
+  node-docker:
+    runs-on: ubuntu-latest
+    container:
+      image: node:17.0-alpine3.13
+    steps:
+      - name: Log node version
+        run: |
+          node -v
+          cat /etc/os-release
 ```
+
+This will print the node version of the container, and the information about the OS as well.
+
 ### Links to examples
 
 - [Creating a simple workflow](https://github.com/abcafr/github-actions-test/blob/main/.github/workflows/simple.yml)
