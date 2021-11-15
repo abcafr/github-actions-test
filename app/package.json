@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/abcafr/github-actions-test/issues"
   },
-  "homepage": "https://github.com/abcafr/github-actions-test#readme"
+  "homepage": "https://github.com/abcafr/github-actions-test#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
