@@ -13,19 +13,15 @@ jobs:
       - name: Log node version
         run: node -v
       - name: Step with docker
-        uses: docker://node-17.1-alpine3.12
+        uses: docker://node-17-alpine3.12
         with:
           entrypoint: /bin/echo
           args: Hello World
       - name: Log node version in docker
-        uses: docker://node-17.1-alpine3.12
+        uses: docker://node-17-alpine3.12
         with:
           entrypoint: /usr/local/bin/node
           args: -v
-      - name: Logout from Dockerhub
-        uses: docker/login-action@v1
-        with:
-          logout: true
   node-docker:
     runs-on: ubuntu-latest
     services:
