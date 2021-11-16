@@ -2,7 +2,7 @@ name: Container
 on: push
 
 jobs:
-  login:
+  docker-steps:
     runs-on: ubuntu-latest
     steps:
       - name: login to Dockerhub
@@ -10,11 +10,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-  docker-steps:
-    runs-on: ubuntu-latest
-    container:
-      image: node:10.18.0-jessie
-    steps:
       - name: Log node version
         run: node -v
       - name: Step with docker
