@@ -22,6 +22,12 @@ jobs:
         with:
           entrypoint: /usr/local/bin/node
           args: -v
+      - uses: actions/checkout@v1
+      - name: Run a script
+        uses: docker://node-17-alpine3.12
+        with:
+          entrypoint: ./script.sh
+          args: "Some string"
   node-docker:
     runs-on: ubuntu-latest
     services:
