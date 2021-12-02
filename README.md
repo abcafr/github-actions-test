@@ -2,7 +2,7 @@
 
 ###### by Casper Frost
 
-This repository will contain a myriad of trial and error on how to do actions in GitHub.
+This repository will contain a myriad of trial and error on how to work with GitHub Actions.
 
 GitHub actions is the automation of software delivery workflows, as per GitHub documentation:
 
