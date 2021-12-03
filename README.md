@@ -66,9 +66,9 @@ Now your client should be able to pull repositories from GitHub with ssh.
 
 ### Creating a workflow
 
-1. To create a GitHub workflow, create the following path in your git repository: **.github/workflows/**.
-1. Create a YML-file named after the workflows purpose, like 'actions.yml', and place it in the directory above, as such: **.github/workflows/actions.yml**.
-1. Depending on the event-trigger, the workflow will now activate when you push code, make a pull-request ect.
+1. To create a GitHub workflow, create the following path in your git repository: **.github/workflows/**
+1. Create a YML-file named after the workflows purpose, like 'build.yml', and place it in the directory above.
+1. The workflow will now activate when you push code, make a pull-request ect. depending on the event trigger.
 
 ### A sample workflow
 
